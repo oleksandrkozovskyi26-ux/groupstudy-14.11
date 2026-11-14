@@ -16,7 +16,7 @@ class RentalService:
         return self._total_revenue
 
     def rent_bike(self, client: Client, station: Station, bike_type: type[Bike] | None = None) -> Result | None:
-        if client.has_bike():
+        if client.bike is not None:
             return Result(False, f"{client.name} уже орендує велосипед")
 
         if client.balance <= 0:
@@ -49,7 +49,7 @@ class RentalService:
             return Result(False, f"Недостатньо коштів. Потрібно {cost:.0f} грн, на балансі {client.balance:.0f} грн")
 
         client.bike = None
-        station.add_bike(client.bike)
+        station.add_bike(returned_bike)
         self._total_revenue += cost
 
         return Result(True)
