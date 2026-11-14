@@ -1,4 +1,4 @@
-from bicycles import Bicycle
+from Kravchenko import Bicycle
 
 class Client:
     def __init__(self, name: str, balance: float, current_bicycle: Bicycle = None):
