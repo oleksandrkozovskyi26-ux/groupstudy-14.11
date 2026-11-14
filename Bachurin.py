@@ -9,13 +9,14 @@ class Result:
 
 class RentalService:
     def __init__(self) -> None:
-        pass
+        self._total_revenue: float = 0.0
 
+    @property
     def total_revenue(self):
-        pass
+        return self._total_revenue
 
     def calculate_cost(self, bike: Bike, minutes: int) -> float:
-        pass
+        return bike.get_rate() * minutes
 
     def rent_bike(self, client: Client, station: Station, bike: type[Bike] | None = None) -> Result | None:
         pass
