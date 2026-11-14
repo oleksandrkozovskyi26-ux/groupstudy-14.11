@@ -75,7 +75,7 @@ def main():
             elif com == "info":
                 print("Заробіток:", total)
                 for i, x in stations.items():
-                    print(i, ":", x.count_bikes)
+                    print(i, ":", x.count_bikes())
 
             elif com == "stop":
                 break
